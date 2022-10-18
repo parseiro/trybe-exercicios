@@ -3,44 +3,85 @@
 /*}*/
 
 header nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    list-style: none;
 }
 
-h1 {
-  font-size: 2rem;
+header nav ul:hover {
+    cursor: progress;
 }
 
-h2 {
-  font-size: 1.8rem;
+table, th, td {
+    border: 1px solid #ddd;
+    border-collapse: collapse;
+    text-align: center;
 }
 
-h3 {
-  font-size: 1.5rem;
+table {
+    width: 100%;
+}
+
+footer {
+    background-color: aquamarine;
+    height: 20px;
+    text-align: center;
+}
+
+.d-block {
+    display: block;
 }
 
 .float-left {
-  float: left;
+    float: left;
 }
 
 .float-right {
-  float: left;
+    float: right;
+}
+
+.clear-both {
+    clear: both;
 }
 
 header, aside, main {
-  border: 1px solid lightgray;
+    border: 1px solid lightgray;
 }
 
 .tamanho-aside {
-  max-width: 100px;
+    max-width: 100px;
 }
 
 .tamanho-main {
-  max-width: 600px;
+    max-width: 600px;
 }
 
 .my-20 {
-  margin-top: 20px;
-  margin-bottom: 20px;
+    margin-top: 20px;
+    /*margin-bottom: 20px;*/
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mx-10 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.m-10 {
+    margin: 10px;
+}
+
+.imagem {
+    object-fit: cover;
+    border-radius: 5px;
+    max-height: 100px;
+    max-width: 200px;
 }
