@@ -29,5 +29,18 @@ h3 {
 }
 
 header, aside, main {
-  border: 1px solid black;
+  border: 1px solid lightgray;
+}
+
+.tamanho-aside {
+  max-width: 100px;
+}
+
+.tamanho-main {
+  max-width: 600px;
+}
+
+.my-20 {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
