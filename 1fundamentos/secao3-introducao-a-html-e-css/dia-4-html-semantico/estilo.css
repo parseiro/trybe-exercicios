@@ -1,0 +1,33 @@
+/*head.li {*/
+/*  display: inline;*/
+/*}*/
+
+header nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: left;
+}
+
+header, aside, main {
+  border: 1px solid black;
+}
