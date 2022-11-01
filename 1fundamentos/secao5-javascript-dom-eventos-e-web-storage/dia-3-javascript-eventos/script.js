@@ -109,3 +109,83 @@ document.querySelectorAll('.day').forEach((item) => {
         toggleClassElement(e.target, 'zoom');
     })
 });
+
+// Parte 7
+// Implemente uma função que adicione uma tarefa personalizada ao calendário;
+// A função deve receber como parâmetro a string com o nome da tarefa (ex: “cozinhar”) e criar dinamicamente um elemento com a tag <span> contendo a tarefa;
+// O elemento criado deverá ser adicionado como filho/filha da tag <div> que possui a classe "my-tasks".
+function createTask(name) {
+    const newTask = document.createElement("span");
+    newTask.classList.add('task');
+    newTask.innerText = name;
+    newTask.addEventListener("click", clickTask)
+
+    const myTasks = document.getElementsByClassName('my-tasks')[0];
+    myTasks.appendChild(newTask);
+}
+
+// Parte 8
+// Implemente uma função que adicione uma legenda com cor para a tarefa;
+// Essa função deverá receber como parâmetro uma string (‘cor’) e criar dinamicamente um elemento de tag <div> com a classe task;
+// O parâmetro cor deverá ser utilizado como cor de fundo da <div> criada;
+// O elemento criado deverá ser adicionado como filho/filha da tag <div> que possui a classe "my-tasks".
+/*function createTaskWithColor(name, color) {
+    const newTask = document.createElement("div");
+    newTask.classList.add('task');
+    newTask.innerText = name;
+    newTask.style.backgroundColor = color;
+    document.querySelector('.my-tasks')
+        .appendChild(newTask);
+}*/
+
+// Parte 9
+// Implemente uma função que selecione uma tarefa;
+// Adicione um evento que ao clicar no elemento com a tag <div> referente à cor da sua tarefa, atribua a esse elemento a classe task selected, ou seja, quando sua tarefa possuir a classe task selected ela estará selecionada;
+// Ao clicar novamente no elemento, a sua classe deverá voltar a ser somente task, ou seja, essa tarefa está deixando de ser uma tarefa selecionada.
+function clickTask({target}) {
+    for (const task of document.querySelectorAll('.task')) {
+        if (task !== target) {
+            task.classList.remove('task-selected');
+        }
+    }
+    toggleClassElement(target, 'task-selected');
+}
+
+// Parte 10
+// Implemente uma função que atribua a cor da tarefa ao dia do calendário;
+// Adicione um evento que, ao clicar em um dia do mês no calendário, atribua a esse dia a cor da legenda da sua tarefa selecionada;
+// Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à configuração inicial rgb(119,119,119).
+
+
+
+// Bônus
+// Vamos adicionar compromissos ao seu calendário? Implemente uma função que, ao digitar um compromisso na caixa de texto “COMPROMISSOS”, adiciona o item à lista “MEUS COMPROMISSOS” ao clicar no botão “ADICIONAR”;
+// Se nenhum caractere for inserido no campo input, a função deve retornar um alert com uma mensagem de erro ao clicar em “ADICIONAR”;
+// Ao pressionar a tecla “enter” o evento também deverá ser disparado.
+const btnAdd = document.getElementById('btn-add');
+const input = document.getElementById('task-input');
+btnAdd.addEventListener("click", () => {
+    // console.log('fui clicado');
+    clickCreateTask(input);
+});
+// btnAdd.addEventListener("keypress", (e) => {
+//     console.log('Apertou Enter');
+//     if (e.key == 'Enter') clickCreateTask(input.value);
+// });
+
+function isBlank(value){
+    // Credits to https://stackoverflow.com/questions/59904409/javascript-generic-isblank-function
+    return !value || !value.toString().trim() || /^[\s\b\0]+$/.test(value.toString());
+}
+
+function clickCreateTask(input) {
+    const texto = input.value.toString().trim();
+
+    if (isBlank(texto)) {
+        window.alert('Erro: campo vazio');
+        return;
+    }
+
+    createTask(texto.toString().trim());
+    input.value = '';
+}

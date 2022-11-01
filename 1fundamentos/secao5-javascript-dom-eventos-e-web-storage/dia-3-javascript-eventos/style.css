@@ -32,7 +32,7 @@ button {
 #days li {
     color: #777;
     display: inline-block;
-    font-size:20px;
+    font-size: 20px;
     margin: 5px 0;
     text-align: center;
     vertical-align: middle;
@@ -64,7 +64,7 @@ label {
 }
 
 .month-container ul li {
-    color:white;
+    color: white;
     font-size: 20px;
     letter-spacing: 3px;
     list-style-type: none;
@@ -165,4 +165,16 @@ label {
 }
 .zoom {
     font-weight: bold;
+}
+
+.bg-gray-500 {
+    background-color: rgb(107 114 128);
+}
+
+.bg-sky-300 {
+    background-color: rgb(125 211 252);
+}
+
+.task-selected {
+    background-color: rgb(125 211 252);
 }
