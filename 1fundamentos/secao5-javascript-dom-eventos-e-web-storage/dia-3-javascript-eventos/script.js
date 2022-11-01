@@ -56,4 +56,21 @@ function criarBotao(argumento) {
 
 // Adicione este botão como filho/filha da tag <div> com classe "buttons-container".
     document.querySelector('.buttons-container').appendChild(botao);
+
+// Adicione ao botão "Feriados" um evento de "click" que altere a cor de fundo dos dias que possuem a classe "holiday".
+    botao.addEventListener("click", (e) => {
+        toggleClass(e, '.holiday', 'bg-red-100');
+        toggleClass(e, '#btn-holiday', 'bg-red-100');
+    });
+}
+
+// Implemente uma função que muda a cor de fundo dos dias que possuem a classe "holiday";
+function toggleClass(event, procurar, toglarClasse) {
+    for (const item of document.querySelectorAll(procurar)) {
+        if (item.classList.contains(toglarClasse)) {
+            item.classList.remove(toglarClasse);
+        } else {
+            item.classList.add(toglarClasse);
+        }
+    }
 }
