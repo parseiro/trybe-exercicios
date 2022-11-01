@@ -118,6 +118,34 @@
   agatres.innerText = 'Terceiro H3';
   main.appendChild(agatres);
 
+  // Adicione a classe title na tag h1 criada;
+  texto.classList.add('title');
+
+  // Adicione a classe description nas 3 tags h3 criadas;
+  for (const item of document.querySelectorAll('main h3')) {
+    item.classList.add('description');
+  }
+
+  // Remova a section criado no passo 5 (aquele que possui a classe left-content). Utilize a função .removeChild();
+  for (const item of document.getElementsByClassName('left-content')) {
+    item.parentElement.removeChild(item);
+  }
+
+  // Centralize a section criado no passo 6 (aquele que possui a classe right-content). Dica: para centralizar, basta configurar o margin-right: auto da section;
+  for (const item of document.getElementsByClassName('right-content')) {
+    item.style.marginRight = 'auto';
+  }
+
+  // Troque a cor de fundo do elemento pai da section criada no passo 3 (aquela que possui a classe center-content) para a cor verde;
+  for (const item of document.getElementsByClassName('center-content')) {
+    item.style.backgroundColor = 'green';
+  }
+
+  // Remova os dois últimos elementos (nove e dez) da lista criada no passo 8.
+  for (const lista of document.querySelectorAll('ul')) {
+    lista.removeChild(lista.lastChild);
+    lista.removeChild(lista.lastChild);
+  }
 
 </script>
 </body>
