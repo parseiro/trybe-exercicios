@@ -53,6 +53,18 @@ function createDaysOfDecember() {
 const botaoFeriado = criarBotao('Feriados', 'btn-holiday', 'holiday', 'bg-red-100');
 document.querySelector('.buttons-container').appendChild(botaoFeriado);
 
+// Parte 4
+// Implemente uma função que crie dinamicamente um botão com o nome "Sexta-feira";
+// Sua função deve receber como parâmetro a string “Sexta-feira”;
+// Adicione a esse botão o ID "btn-friday";
+// Adicione esse botão como filho/filha da tag <div> com classe "buttons-container".
+// Parte 5
+// Implemente uma função que modifica o texto exibido nos dias que são Sexta-feira;
+// Adicione ao botão “Sexta-feira” um evento de “click” e modifique o texto a ser exibido nos dias que são sextas-feiras.
+const botaoSexta = criarBotao('Sexta-feira', 'btn-friday', 'friday', 'bg-green-200');
+document.querySelector('.buttons-container').appendChild(botaoSexta);
+
+
 function criarBotao(buttonText, buttonId, targetClass, classToToggle) {
     const botao = document.createElement('button');
     botao.innerText = buttonText;
