@@ -45,26 +45,28 @@ function createDaysOfDecember() {
 // Parte 2
 // Implemente uma função que crie dinamicamente um botão com o nome “Feriados”;
 // Sua função deve receber um parâmetro com a string 'Feriados';
-criarBotao('Feriados');
-function criarBotao(argumento) {
-    const botao = document.createElement('button');
-    botao.innerText = 'Feriados';
-    botao.type = 'button';
-
 // Adicione a este botão a ID "btn-holiday";
-    botao.id = 'btn-holiday';
-
 // Adicione este botão como filho/filha da tag <div> com classe "buttons-container".
-    document.querySelector('.buttons-container').appendChild(botao);
-
+// Parte 3
+// Implemente uma função que muda a cor de fundo dos dias que possuem a classe "holiday";
 // Adicione ao botão "Feriados" um evento de "click" que altere a cor de fundo dos dias que possuem a classe "holiday".
+const botaoFeriado = criarBotao('Feriados', 'btn-holiday', 'holiday', 'bg-red-100');
+document.querySelector('.buttons-container').appendChild(botaoFeriado);
+
+function criarBotao(buttonText, buttonId, targetClass, classToToggle) {
+    const botao = document.createElement('button');
+    botao.innerText = buttonText;
+    botao.type = 'button';
+    botao.id = buttonId;
+
     botao.addEventListener("click", (e) => {
-        toggleClass(e, '.holiday', 'bg-red-100');
-        toggleClass(e, '#btn-holiday', 'bg-red-100');
+        toggleClass(e, `.${targetClass}`, classToToggle);
+        toggleClass(e, `#${buttonId}`, classToToggle);
     });
+
+    return botao;
 }
 
-// Implemente uma função que muda a cor de fundo dos dias que possuem a classe "holiday";
 function toggleClass(event, procurar, toglarClasse) {
     for (const item of document.querySelectorAll(procurar)) {
         if (item.classList.contains(toglarClasse)) {
