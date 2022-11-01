@@ -72,19 +72,23 @@ function criarBotao(buttonText, buttonId, targetClass, classToToggle) {
     botao.id = buttonId;
 
     botao.addEventListener("click", (e) => {
-        toggleClass(e, `.${targetClass}`, classToToggle);
-        toggleClass(e, `#${buttonId}`, classToToggle);
+        toggleClassGeneric(e, `.${targetClass}`, classToToggle);
+        toggleClassGeneric(e, `#${buttonId}`, classToToggle);
     });
 
     return botao;
 }
 
-function toggleClass(event, procurar, toglarClasse) {
+function toggleClassElement(item, classe) {
+    if (item.classList.contains(classe)) {
+        item.classList.remove(classe);
+    } else {
+        item.classList.add(classe);
+    }
+}
+
+function toggleClassGeneric(event, procurar, toglarClasse) {
     for (const item of document.querySelectorAll(procurar)) {
-        if (item.classList.contains(toglarClasse)) {
-            item.classList.remove(toglarClasse);
-        } else {
-            item.classList.add(toglarClasse);
-        }
+        toggleClassElement(item, toglarClasse);
     }
 }
