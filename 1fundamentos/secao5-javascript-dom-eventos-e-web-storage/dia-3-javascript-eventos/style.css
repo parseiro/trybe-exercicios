@@ -163,3 +163,6 @@ label {
 .bg-green-200 {
     background-color: rgb(187 247 208);
 }
+.zoom {
+    font-weight: bold;
+}

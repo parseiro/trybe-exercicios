@@ -92,3 +92,20 @@ function toggleClassGeneric(event, procurar, toglarClasse) {
         toggleClassElement(item, toglarClasse);
     }
 }
+
+// Parte 6
+// Implemente duas funções que criem um efeito de “zoom”;
+// Ao passar o ponteiro do mouse em um dia do mês no calendário, o texto desse dia deve aumentar e, quando o ponteiro do mouse sair do dia, o texto deve retornar ao tamanho original.
+// De olho na dica 👀: Você pode utilizar a propriedade event.target.
+document.querySelectorAll('.day').forEach((item) => {
+    item.addEventListener('mouseover', (e) => {
+        toggleClassElement(e.target, 'zoom');
+    })
+});
+
+document.querySelectorAll('.day').forEach((item) => {
+    item.addEventListener('mouseout', (e) => {
+        // console.log(`out`);
+        toggleClassElement(e.target, 'zoom');
+    })
+});
