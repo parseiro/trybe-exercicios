@@ -1,6 +1,6 @@
 # Formatador de texto
 
-Esta página permite alterar as configurações do texto, sejam elas:
+Este [web-app](https://parseiro.github.io/trybe-exercicios/1fundamentos/secao5-javascript-dom-eventos-e-web-storage/dia-4-javascript-web-storage/) permite alterar as configurações do texto, sejam elas:
 
 - Cor de fundo (background)
 - Cor da fonte (color)
