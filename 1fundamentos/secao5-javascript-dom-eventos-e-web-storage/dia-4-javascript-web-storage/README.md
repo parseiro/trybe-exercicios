@@ -35,4 +35,6 @@ No código exemplificado acima, o script fará os seguintes passos:
 
 ## Como posso personalizar o código existente?
 
-Você pode personalizar os botões existentes editando a variável `buttonGroups`.
+1. Você pode definir onde cada grupo de botões será posicionado no HTML utilizando o mesmo id definido na variável `buttonGroups`.
+2. Você pode personalizar os botões editando a variável `buttonGroups`.
+3. Defina uma função de callback que faça a alteração desejada.
