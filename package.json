@@ -1,5 +1,24 @@
 {
+  "name": "trybe-exercicios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "teste.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/parseiro/trybe-exercicios.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/parseiro/trybe-exercicios/issues"
+  },
+  "homepage": "https://github.com/parseiro/trybe-exercicios#readme",
   "devDependencies": {
+    "jest": "^29.3.1",
     "prettier": "^2.7.1"
   }
 }
