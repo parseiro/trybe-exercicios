@@ -25,5 +25,11 @@ fetch(USERS_API)
 usersSelect.addEventListener('change', () => {
     clearPageData();
 
-    // faça a lógica para pegar as informações dos posts da pessoa selecionada e dos comentários do post destacado aqui.
+    const id = usersSelect.value;
+    const URL = `https://dummyjson.com/posts/user/${id}`;
+
+    fetch(URL)
+        .then(result => result.json())
+        .then(posts => posts)
+        .catch(error => console.log(`Error fetching user ${id}: ${error}`));
 });
