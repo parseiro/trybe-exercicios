@@ -1,23 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 <div id="app">
-  <h1>Microblogs</h1>
-  <div class="select-section">
-    <select name="users-select" id="users-select" required>
-      <option value="" disabled selected>Select a person</option>
-    </select>
-  </div>
-
-  <div id="posts-section" class="invisible">
-    <div id="featured-post">
-      <h2 id="featured-post-title"></h2>
-      <p id="featured-post-body"></p>
-
-      <div id="featured-post-comments"></div>
+    <h1>Microblogs</h1>
+    <div class="select-section">
+        <select name="users-select" id="users-select" required>
+            <option value="" disabled selected>Select a person</option>
+        </select>
     </div>
 
-    <div id="related-posts-section"></div>
-  </div>
+    <div id="posts-section" class="invisible">
+        <div id="featured-post">
+            <h2 id="featured-post-title"></h2>
+            <p id="featured-post-body"></p>
 
-  <div class="error-section">
-    <p id="error-message" class="invisible"></p>
-  </div>
+            <div id="featured-post-comments"></div>
+        </div>
+
+        <div id="related-posts-section"></div>
+    </div>
+
+    <div class="error-section">
+        <p id="error-message" class="invisible"></p>
+    </div>
 </div>
+<script type="module" src="index.js"></script>
+</body>
+</html>
