@@ -30,6 +30,12 @@ usersSelect.addEventListener('change', () => {
 
     fetch(URL)
         .then(result => result.json())
-        .then(posts => posts)
-        .catch(error => console.log(`Error fetching user ${id}: ${error}`));
+        .then(posts => {
+            fillPosts(posts.posts);
+            const featuredPost = posts.posts[0];
+            return fetch(`https://dummyjson.com/posts/${featuredPost.id}/comments`);
+        })
+        .then(result => result.json())
+        .then(json => fillFeaturedPostComments(json.comments))
+        .catch(error => fillErrorMessage(`Error fetching user ${id}: ${error}`));
 });
