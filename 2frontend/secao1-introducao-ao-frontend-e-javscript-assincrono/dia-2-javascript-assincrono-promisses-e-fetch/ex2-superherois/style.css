@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#card {
+    border: 1px solid gray;
+    background-color: lightgray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    padding: 0 40px 20px;
+}
+
+#card img {
+    height: 300px;
+    width: 200px;
+    margin: 20px;
+}
+
+#btnSortear {
+    cursor: pointer;
+}
