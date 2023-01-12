@@ -6,6 +6,29 @@ const nomeEl = document.getElementById('nome');
 
 const accessToken = '10160384578649812';
 
+async function puxarHeroi(URL, options) {
+    try {
+        const response = await fetch(URL, options);
+
+        const contentType = response.headers.get('content-type');
+        if (!contentType || !contentType.includes('application/json')) {
+            throw new TypeError('Oops, we haven\'t got JSON!');
+        }
+
+        const json = await response.json();
+        fotoEl.src = json.image.url;
+        nomeEl.innerText = json.name;
+
+    } catch (error) {
+        Swal.fire({
+            title: 'Error:',
+            text: `${error}`,
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    }
+}
+
 btnSortearEl.addEventListener('click', () => {
     const randomId = getRandomId(1, 500);
     fotoEl.src = '';
@@ -16,31 +39,7 @@ btnSortearEl.addEventListener('click', () => {
         method: 'GET',
         headers: {'Accept': 'application/json'},
     };
-    fetch(URL, options)
-        .then(response => {
-            // window.resposta = response;
-            // console.log(response);
-            const contentType = response.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
-                throw new TypeError('Oops, we haven\'t got JSON!');
-            }
-            return response.json();
-        })
-        .then(json => {
-            // console.log(json);
-            fotoEl.src = json.image.url;
-            nomeEl.innerText =  json.name;
-            return json;
-        })
-        .catch(error => {
-            Swal.fire({
-                title: 'Error:',
-                text: `${error}`,
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-        })
-    ;
+    puxarHeroi(URL, options);
 });
 
 function getRandomId(min, max) {
