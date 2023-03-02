@@ -1,42 +1,34 @@
-import React, { Component } from 'react';
-import './App.css';
-import { Spinner } from 'flowbite-react';
-import { Route, Switch } from 'react-router-dom';
-import { About } from './components/About';
-import { Home } from './components/Home';
-import { Navbar } from './components/Navbar';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import './App.css'
 
-interface IState {
-  isLoading: boolean;
-  errorMessage: string | null;
-  pessoa: object;
-}
+function App() {
+  const [count, setCount] = useState(0)
 
-class App extends Component {
-  state: IState = {
-    isLoading: false,
-    errorMessage: null,
-    pessoa: {},
-  };
-
-  componentDidMount() {
-    // this.getRandomPerson().then();
-  }
-
-  render() {
-    return (
-      <div className="md:container mx-auto">
-        <Navbar limit="sm" />
-        {this.state.isLoading && <Spinner aria-label="Extra large spinner example" size="xl" />}
-        {!!this.state.errorMessage && <p className="border text-left">Erro! {this.state.errorMessage}</p>}
-
-        <Switch>
-          <Route path="/about" component={About} />
-          <Route exact path="/" component={Home} />
-        </Switch>
+  return (
+    <div className="App">
+      <div>
+        <a href="https://vitejs.dev" target="_blank">
+          <img src="/vite.svg" className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://reactjs.org" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
       </div>
-    );
-  }
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </div>
+  )
 }
 
-export default App;
+export default App
