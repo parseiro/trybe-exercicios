@@ -1,6 +1,7 @@
 import './App.css';
 import { legacy_createStore as createStore } from 'redux';
 import { composeWithDevTools } from '@redux-devtools/extension';
+import { useState } from 'react';
 
 const INITIAL_STATE = {
   colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
@@ -19,7 +20,8 @@ const redutor = (state = INITIAL_STATE, acao) => {
       newIndex = (currentIndex + 1) % colors.length;
       break;
     case ANTERIOR_COR:
-      newIndex = (currentIndex - 1) % colors.length;
+      if (currentIndex === 0) newIndex = colors.length - 1;
+      else newIndex = (currentIndex - 1) % colors.length;
       break;
     default:
       return state;
@@ -33,21 +35,20 @@ const redutor = (state = INITIAL_STATE, acao) => {
 
 const loja = createStore(redutor, composeWithDevTools());
 
-const valor = document.getElementById('value');
-loja.subscribe(() => {
-  const { colors, index } = loja.getState();
-  console.log(`Novo index: ${index}, Nova cor: ${colors[index]}`);
-  if (valor) {
-    valor.innerText = colors[index];
-  }
-});
-
 function App() {
+  const [valor, setValor] = useState('');
+
+  loja.subscribe(() => {
+    const { colors, index } = loja.getState();
+    console.log(`Novo index: ${index}, Nova cor: ${colors[index]}`);
+    setValor(colors[index]);
+  });
+
   return (
     <div className="App">
       <div id="container">
         <p>
-          Color: <span id="value">white</span>
+          Color: <span id="value">{valor}</span>
         </p>
         <button id="previous" onClick={() => loja.dispatch({ type: ANTERIOR_COR })}>
           Previous color
