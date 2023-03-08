@@ -16,12 +16,12 @@ const requestStarted = () => ({
   type: REQUEST_STARTED
 });
 
-/*const fetchDogImage = () => {
+export const fetchDogImage = () => {
   return (dispatch) => {
     dispatch(requestStarted());
-    fetch("https://dog.ceo/api/breeds/imagem/random")
+    fetch("https://dog.ceo/api/breeds/image/random")
       .then(response => response.json())
       .then(({message}) => dispatch(requestSuccessfull(message)))
       .catch((error) => dispatch(requestFailed(error)));
   }
-}*/
+}
