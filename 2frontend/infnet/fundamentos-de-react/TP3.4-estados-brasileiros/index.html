@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport"
+        content="width=device-width">
+  <title>replit</title>
+  <link href="style.css"
+        rel="stylesheet"
+        type="text/css"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css"
+    rel="stylesheet"/>
+</head>
+
+<body class="max-w-5xl mx-auto bg-gray-500">
+<h1 class="text-center text-4xl">Estados Brasileiros</h1>
+<label for="estados"
+       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Estado:</label>
+<select id="estados"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+  <option value=""
+          selected>Selecione um estado
+  </option>
+</select>
+
+<label for="municipios"
+       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+  Município:
+</label>
+<select id="municipios"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">>
+<option value="" selected>Selecione um município</option>
+</select>
+<script src="script.js"></script>
+
+<!--
+This script places a badge on your repl's full-browser view back to your repl's cover
+page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+teal, blue, blurple, magenta, pink!
+-->
+<script src="https://replit.com/public/js/replit-badge-v2.js"
+        theme="dark"
+        position="bottom-right"></script>
+</body>
+
+</html>
