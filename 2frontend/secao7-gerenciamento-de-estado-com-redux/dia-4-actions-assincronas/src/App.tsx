@@ -2,13 +2,12 @@ import "./App.css";
 import {connect} from "react-redux";
 import {Button} from "flowbite-react";
 import {fetchDogImage} from "./redux/actions";
-import * as AspectRatio from "@radix-ui/react-aspect-ratio";
 
 function App({isLoading, url, dispatch}) {
-
     let figura;
     if (isLoading) figura =
-        <div role="status" className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center w-full h-full">
+        <div role="status"
+             className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center w-full h-full aspect-video">
             <div className="flex items-center justify-center w-full h-full bg-gray-300 rounded dark:bg-gray-700">
                 <svg className="w-12 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                      fill="currentColor" viewBox="0 0 640 512">
@@ -28,7 +27,7 @@ function App({isLoading, url, dispatch}) {
         </div>;
     else figura = (
         <img
-            className="object-cover rounded-lg max-w-full h-full"
+            className="object-cover rounded-lg aspect-video"
             src={url}
             alt="image description"/>
     );
@@ -44,10 +43,8 @@ function App({isLoading, url, dispatch}) {
                 Random dog
             </Button>
 
-            <figure className="w-full">
-                <AspectRatio.Root ratio={16 / 9} className="flex flex-col items-center justify-center border">
-                    {figura}
-                </AspectRatio.Root>
+            <figure className="w-full max-w-5xl flex flex-col items-center justify-center">
+                {figura}
                 <figcaption className="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Random dog
                 </figcaption>
             </figure>
